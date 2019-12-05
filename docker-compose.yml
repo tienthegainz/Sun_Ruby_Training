@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: Rails5
+    restart: unless-stopped
+    volumes:
+      - .:/myapp
+    ports:
+      - '5050:5050'
+    command: 'bundle install'
+    command: 'yarn install'
+    command: 'bundle exec rails s -p 5050 -b "0.0.0.0"'
+    stdin_open: true
+    tty: true
